@@ -21,9 +21,10 @@ function Ejercicio2()
     disp(distanciaEuclidiana(x2prima,med));
     %-----------Inicio de ejercicio 3-----------
     covarianzaPrima = covarianzaPrima;  %calculada anteriormente
-    desv = [covarianzaPrima(1,1),covarianzaPrima(2,2)];    %desviacion estandar de la covarianza
+    desv = std(covarianzaPrima);    %desviacion estandar de la covarianza
+    desv = desv.^2;
     Uprima(:,1) = Uprima(:,1)/desv(1);  %Normalizacion segun std de dimension x
-    Uprima(:,1) = Uprima(:,1)/desv(2);  %Normalizacion segun std de dimension y
+    Uprima(:,2) = Uprima(:,2)/desv(2);  %Normalizacion segun std de dimension y
     x1prima = x1prima./desv;
     x2prima = x2prima./desv;
     med = med./desv;
@@ -32,6 +33,8 @@ function Ejercicio2()
     graficarPunto(x1prima,'.r');
     graficarPunto(x2prima,'.g');
     graficarPunto(med,'.y');
+    disp(distanciaEuclidiana(x1prima,med));
+    disp(distanciaEuclidiana(x2prima,med));
     
 end
 
